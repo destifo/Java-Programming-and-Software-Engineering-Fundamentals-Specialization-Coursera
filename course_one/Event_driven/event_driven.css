@@ -1,0 +1,22 @@
+div {
+    width: 200px;
+    font-size: 28px;
+    border: lightcoral;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#d1{
+    background-color: rgb(173, 223, 230);
+}
+
+#d2{
+    background-color: lightseagreen;
+}
+
+.orangeback{
+    background-color: orange;
+}
+
+.fuchsiaback{
+    background-color: fuchsia;
+}
