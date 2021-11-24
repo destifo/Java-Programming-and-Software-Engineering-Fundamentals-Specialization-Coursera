@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="paint.css">
+    <title>paint</title>
+</head>
+<body>
+    <h1>Paint your own picture</h1>
+    <form action="" >
+        <p>
+            set height <input type="text" name="height" placeholder="height" onchange="setHeight(this.value)" />
+            set width <input type="text" name="width" placeholder="width" onchange="setWidth(this.value)" />
+        </p>
+    </form>
+    <canvas id="cnv1" onmousedown="startPaint()" onmousemove="doPaint(event.offsetX, event.offsetY)" onmouseup="endPaint()">
+
+    </canvas>
+    <p>Brush Color<input type="color" value="#000" onchange="changeColor(this.value)"/>
+        Brush size<input id="sizeInput" type="range" max="50" min="1" value="25" oninput="resizeBrush(this.value)" />
+        <output id="sizeOutput">25</output>
+    </p>
+    <p>
+        clean the board<input type="button" id="clear" value="clear canvas" onclick="clearCanvas()" />
+    </p>
+    
+    
+    <script src="paint.js"></script>
+</body>
+</html>
