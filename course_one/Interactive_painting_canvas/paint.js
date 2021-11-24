@@ -3,6 +3,8 @@ var ctx = pcanvas.getContext('2d');
 var color = 'black';
 var radius = 50;
 var isPainting = false;    
+pcanvas.width = 800;
+pcanvas.height = 400;
 
 function setWidth(value){
     if (isNumeric(value)){
@@ -27,6 +29,10 @@ function changeColor(newcolor){
 function resizeBrush(newsize){
     radius = newsize;
     document.getElementById('sizeOutput').value = newsize;
+}
+
+function setEraser(){
+    color = 'white';
 }
 
 function paintCircle(x, y){

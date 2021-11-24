@@ -11,8 +11,8 @@
     <h1>Paint your own picture</h1>
     <form action="" >
         <p>
-            set height <input type="text" name="height" placeholder="height" onchange="setHeight(this.value)" />
-            set width <input type="text" name="width" placeholder="width" onchange="setWidth(this.value)" />
+            set height <input type="text" value="400" name="height" placeholder="height" onchange="setHeight(this.value)" />
+            set width <input type="text" value="800" name="width" placeholder="width" onchange="setWidth(this.value)" />
         </p>
     </form>
     <canvas id="cnv1" onmousedown="startPaint()" onmousemove="doPaint(event.offsetX, event.offsetY)" onmouseup="endPaint()">
@@ -23,7 +23,8 @@
         <output id="sizeOutput">25</output>
     </p>
     <p>
-        clean the board<input type="button" id="clear" value="clear canvas" onclick="clearCanvas()" />
+        <input type="button" id="clear" value="clean the board" onclick="clearCanvas()" />
+        <input type="button" value="Eraser" onclick="setEraser()" />
     </p>
     
     
