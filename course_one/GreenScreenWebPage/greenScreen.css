@@ -1,0 +1,14 @@
+canvas{
+    border: 1px solid #c3c3c3;
+    width: 45vw;
+    height: 65vh;
+}
+
+.File{
+    margin-bottom: 10px;
+}
+
+#cnv2{
+    margin-left: 1.5em;
+}
+

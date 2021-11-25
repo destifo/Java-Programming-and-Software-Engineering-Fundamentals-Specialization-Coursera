@@ -18,10 +18,14 @@ function loadBgImg(file){
 }
 
 function clrCanvas(){
-    var fCtx = fcanvas.getContext("2d");
-    var bCtx = bcanvas.getContext("2d");
-    fCtx.clearRect(0, 0, fcanvas.width, fcanvas.height);
-    bCtx.clearRect(0, 0, bcanvas.width, bcanvas.height);
+    if (bcanvas != null){
+        var bCtx = bcanvas.getContext("2d");
+        bCtx.clearRect(0, 0, bcanvas.width, bcanvas.height);
+    }
+    if (fcanvas != null){
+        var fCtx = fcanvas.getContext("2d");
+        fCtx.clearRect(0, 0, fcanvas.width, fcanvas.height);
+    } 
 }
 
 function doGreenScreen(){
@@ -33,12 +37,12 @@ function doGreenScreen(){
         alert('Error while accessing the foreground image');
         return;
     }
-
+    oimg = new SimpleImage(fimg.getWidth(), fimg.getHeight());
     for (var pixel of fimg.values()){
         var x = pixel.getX();
         var y = pixel.getY();
-        if (pixel.getGreen() > (pixel.getBlue() + pixel.getRed())){
-            oimg = new SimpleImage(fimg.width, fimg.height);
+        
+        if (pixel.getGreen() > pixel.getBlue() + pixel.getRed()){
             oimg.setPixel(x, y, bimg.getPixel(x, y));
         }
         else{

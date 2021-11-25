@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="greenScreen.css">
+    <title>Create composite pictures</title>
+</head>
+<body>
+    <h1>Upload and create your composite</h1>
+    <canvas id="cnv1">
+
+    </canvas>
+    <canvas id="cnv2">
+
+    </canvas>
+    <p>
+        Foreground: <input class="File" type="file" oninput="loadFgImg(this)" /><br />
+        Background: <input class="File" type="file" oninput="loadBgImg(this)" />
+    </p><br />
+    <input type="button" value="Composite" onclick="doGreenScreen()" />
+    <input type="button" value="Clear Canvas" onclick="clrCanvas()"> 
+    <script src="greenScreen.js"></script>
+    <script src="SimpleImage.js"></script>
+</body>
+</html>
