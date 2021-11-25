@@ -1,5 +1,9 @@
 canvas{
     border: 1px solid black;
-    width: 50vw;
+    width: 45vw;
     height: 60vh;
+}
+
+#cnv2{
+    margin-left: 3em;
 }

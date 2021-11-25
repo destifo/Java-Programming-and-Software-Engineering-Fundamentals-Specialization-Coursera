@@ -11,8 +11,13 @@
     <h1>upload an image</h1>
     <canvas id="cnv1">
 
-    </canvas><br />
-    <input type="file" id="finput" multiple="false" oninput="upload(this.value)" />
+    </canvas>
+    <canvas id="cnv2">
+        
+    </canvas>
+    <br />
+    <input type="file" id="finput" multiple="false" oninput="upload(this.value)" /><br />
+    <input type="button" value="make grey" onclick="makeGrey()" />
     <script src="upload.js"></script>
     <script src="SimpleImage.js"></script>
 </body>
