@@ -1,0 +1,44 @@
+body { 
+    background-color:lavenderblush ;
+}
+
+canvas{
+    width: 50%;
+    height: 40%;
+    border: 1px solid #c3c3c3; 
+}
+
+#mr{
+    background-color: red;
+}
+
+#mg{
+    background-color: gray;
+}
+
+input[button]{
+    padding: 0.3em;
+}
+
+.button {
+    background-color: cadetblue;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+#down{
+    background-color: deepskyblue;
+}
+
+.file {
+    display: inline-flex;
+    cursor: pointer;
+
+}

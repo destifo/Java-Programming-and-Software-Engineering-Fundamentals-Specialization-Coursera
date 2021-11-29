@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="myPhotoshop.css">
+    <title>my photoshop</title>
+</head>
+<body>
+    <h1>Filter Fun</h1><br />
+    <canvas id="cnv1">
+
+    </canvas>
+    <h2>Load Image</h2>
+    <input id="finput" class="file" type="file" multiple="false" accept="images/*" oninput="loadImg(this)" /><br />
+    <h2>Choose Filter</h2>
+    <input id="mg" class="button" type="button" onclick="makeGray()" value="Grayscale" >
+    <input id="mr" class="button" type="button" onclick="makeRed()" value="Red" ><br />
+    <br /><input id="rst" class="button" type="button" onclick="reset()" value="Reset" >
+    <h3>
+        Download your edit: <input id="down" class="button" type="button" onclick="download()" value="Download" >
+    </h3>
+    <script src="myPhotoshop.js"></script>
+    <script src="SimpleImage.js"></script>
+</body>
+</html>
