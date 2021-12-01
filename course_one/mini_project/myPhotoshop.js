@@ -30,10 +30,135 @@ function makeGray(){
 function makeRed(){
     var rImg = new SimpleImage(img);
     for (var px of rImg.values()){
-        px.setRed(255);
+        var avg = (px.getRed() + px.getGreen() + px.getBlue())/3;
+        if (avg < 128){
+            px.setRed(2*avg);
+        }
+        else{
+            px.setRed(255);
+            px.setGreen(2*avg - 255);
+            px.setBlue(2*avg - 255);
+        }
     }
     clrCanvas();
     rImg.drawTo(canvas);
+}
+
+
+
+function makeRbow(){
+    var rbow = new SimpleImage(img);
+    var height = rbow.height;
+    for (var px of rbow.values()){
+        let x = px.getX();
+        let y = px.getY();
+        var red = px.getRed();
+        var green = px.getGreen();
+        var blue = px.getBlue();
+        var avg = (red + green + blue)/3;
+        if (y < height/7){
+            if (avg < 128){
+                px.setRed(avg*2);
+            }
+            else{
+                px.setRed(255);
+                px.setGreen(2*avg - 255);
+                px.setBlue(2*avg - 255);
+            }
+        }else if(y < 2*height/7){
+            if (avg < 128){
+                px.setRed(avg*2);
+                px.setGreen(0.8*avg);
+            }
+            else{
+                px.setRed(255);
+                px.setGreen(1.2*avg - 51);
+                px.setBlue(2*avg - 255);
+        
+            }    
+        }else if(y < 3*height/7){
+            if (avg < 128){
+                px.setRed(avg*2);
+                px.setGreen(2*avg);
+            }
+            else{
+                px.setRed(255);
+                px.setGreen(255);
+                px.setBlue(2*avg - 255);
+        
+            }
+        }else if(y < 4*height/7){
+            if (avg < 128){
+                px.setGreen(2*avg);
+            }
+            else{
+                px.setRed(2*avg - 255);
+                px.setGreen(255);
+                px.setBlue(2*avg - 255);
+        
+            }
+        }else if(y < 5*height/7){
+            if (avg < 128){
+                px.setBlue(2*avg);
+            }
+            else{
+                px.setRed(2*avg - 255);
+                px.setGreen(2*avg - 255);
+                px.setBlue(255);
+        
+            }
+        }else if(y < 6*height/7){
+            if (avg < 128){
+                px.setRed(avg*0.8);
+                px.setBlue(2*avg);
+            }
+            else{
+                px.setRed(1.2*avg - 51);
+                px.setGreen(2*avg - 255);
+                px.setBlue(255);
+        
+            }
+        }else if(y < height){
+            if (avg < 128){
+                px.setRed(avg*1.6);
+                px.setBlue(1.6*avg);
+            }
+            else{
+                px.setRed(0.4*avg + 153);
+                px.setGreen(2*avg - 255);
+                px.setBlue(0.4*avg + 153);
+        
+            }
+        }    
+    }
+    rbow.drawTo(canvas);
+}
+
+function makeSrk(){
+    var srkImg = new SimpleImage(img);
+    for (var px of srkImg.values()){
+        var avg = (px.getRed() + px.getGreen() + px.getBlue())/3;
+        let x = px.getX();
+        let y = px.getY();
+        let sinx = Math.sin(x+50);
+        if (y > sinx){
+            px.setRed(0);
+            px.setGreen(255);
+            px.setBlue(255);
+        }
+        else{
+            if (avg<128){
+                px.setBlue(2*avg);
+            }
+            else{
+                px.setRed(2*avg - 255);
+                px.setBlue(255);
+                px.setGreen(2*avg - 255);
+            }
+        }
+        
+    }
+    srkImg.drawTo(canvas);
 }
 
 function download(){
@@ -44,6 +169,20 @@ function download(){
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
+}
+
+function makeBg(){
+    var url = canvas.toDataURL();
+    document.body.style.backgroundImage = 'url(' + url + ')';
+    document.getElementById("div1").style.visibility = 'hidden';
+    document.getElementById("div0").style.visibility = 'visible';
+}
+
+function displayOn(){
+    document.getElementById("div1").style.visibility = 'visible';
+    document.getElementById("div0").style.visibility = 'hidden';
+    document.body.style.backgroundImage = 'none';
+
 }
 
 function reset(){

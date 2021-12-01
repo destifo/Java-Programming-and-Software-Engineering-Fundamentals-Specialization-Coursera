@@ -16,8 +16,25 @@ canvas{
     background-color: gray;
 }
 
+#trgsk{
+    background-color: aqua;
+}
+
+#rbow{
+    background-color: white;
+    color: red;
+}
+
 input[button]{
     padding: 0.3em;
+}
+
+#div0{
+    color: red;
+    background-color: lightblue;
+    visibility: hidden;
+    background-color: transparent;
+    float: right;
 }
 
 .button {
