@@ -1,6 +1,6 @@
 var canvas = document.getElementById("cnv1");
 var ctx = canvas.getContext("2d");
-var img;
+var img = null;
 
 
 function loadImg(file){
@@ -161,6 +161,46 @@ function makeSrk(){
     srkImg.drawTo(canvas);
 }
 
+function makeBlur(){
+    if (!img.complete() || img==null){
+        alert("Image is not loaded, load the an image first!");
+        return;
+    }
+    var blurImg = new SimpleImage(img.width, img.height);
+    for (var px of blurImg.values()){
+        var randNum = Math.random();
+        if (randNum < 0.5){
+            var imgPx = img.getPixel(px.getX(), px.getY());
+            blurImg.setPixel(px.getX(), px.getY(), imgPx);
+        }
+        else{
+            var x = px.getX();
+            var y = px.getY();
+            var randX = returnRandomNum(-10, 10) ;
+            var randY = returnRandomNum(-10, 10);
+            var newX = randX + x;
+            var newY = randY + y;
+            if (newX < 0){
+                newX = 0;
+            }
+            if (newY < 0){
+                newY = 0;
+            }
+            if (newX >= blurImg.width){
+                newX = blurImg.width - 1;
+            }
+            if (newY >= blurImg.height){
+                newY = blurImg.height - 1;
+            }
+            var imgPx = img.getPixel(newX, newY);
+            blurImg.setPixel(px.getX(), px.getY(), imgPx);
+        }
+    }
+    blurImg.drawTo(canvas);
+
+    
+}
+
 function download(){
     var url = canvas.toDataURL();
     const a = document.createElement('a');
@@ -183,6 +223,11 @@ function displayOn(){
     document.getElementById("div0").style.visibility = 'hidden';
     document.body.style.backgroundImage = 'none';
 
+}
+
+function returnRandomNum(min = 0, max = 1){
+    var rand = Math.floor((Math.random() * (max - min + 1)) + min);
+    return rand;
 }
 
 function reset(){
